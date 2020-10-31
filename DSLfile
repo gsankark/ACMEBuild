@@ -1,0 +1,20 @@
+job("14DSL_Project"){
+  
+  description("Test Automation Project - LeafTaps")
+  
+  scm{
+    git('https://github.com/gsankark/ACMEBuild', 'master')
+  }
+  
+  triggers{
+    scm('* * * * *')
+  }
+  
+  steps{
+    maven('package')
+  }
+  
+  publishers{
+    mailer('gsankark@gmail.com', true, true)
+  }
+}
